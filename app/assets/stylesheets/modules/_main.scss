@@ -3,6 +3,7 @@
 }
 
 $main: #2f3e51;
+$sub: #253141;
 
 .wrapper {
   height: 100vh;
@@ -11,6 +12,7 @@ $main: #2f3e51;
 .header {
   height: 140px;
   background-color: $main;
+  border-bottom: 1px #eeeeee solid;
   .top-items {
     height: 100%;
     display: flex;
@@ -23,8 +25,11 @@ $main: #2f3e51;
       display: flex;
       justify-content: space-between;
       &__name {
-        color: white;
-        font-weight: bold;
+        .user-edit {
+          color: white;
+          font-weight: bold;
+          text-decoration: none;
+        }
       }
       &__btn {
         margin-right: 5px;
@@ -45,40 +50,151 @@ $main: #2f3e51;
         text-decoration: none;
         color: white;
         font-size: 20px;
+        font-weight: bold;
       }
     }
   }
 }
 
-.tabs {
-  height: 50px;
-  background-color: rgb(45, 49, 53);
-  display: flex;
-  &__tab {
-    height: 100%;
-    width: 25%;
-    background-color: white;
-    border: solid white thin;
-    border-bottom: 0;
-    border-right: 0;
-    }
-    &__tab2 {
-      background-color: #253141;
-      width: 25%;
-      border: solid black thin;
-      border-bottom: 0;
-      border-right: 0;
-    }
-}
-
 .body {
-  height: calc(100% - 310px);
-  background-color: white;
-  border: solid white thin;
-  border-top: 0;
+  height: calc(100% - 260px);
+  display: flex;
+  .group {
+    width: 20%;
+    background-color: $sub;
+    border-right: solid 1px #eeeeee;
+    &__members {
+      height: 50px;
+      width: 100%;
+      color: white;
+      font-size: 20px;
+      padding: 10px 0 0 10px;
+      font-weight: bold;
+      border-bottom: solid 1px #eeeeee;
+      // border-right: solid 1px #eeeeee;
+    }
+    &__member {
+      height: 10%;
+      width: 100%;
+      padding: 20px 0 0 10px;
+      .personal-page {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+      }
+    }
+  }
+  .content {
+    width: 80%;
+    height: 100%;
+    .tabs {
+      height: 50px;
+      background-color: $sub;
+      display: flex;
+      &__tab {
+        height: 100%;
+        width: 25%;
+        background-color: white;
+        border-bottom: 0;
+        border-right: 0;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 50px;
+        padding-left: 15px;
+        }
+      &__tab2 {
+        background-color: $sub;
+        width: 25%;
+        border-right: solid 1px #eeeeee;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 50px;
+        padding-left: 15px;
+      }
+    }
+    .message {
+      height: calc(100% - 50px);
+      &__mine {
+        padding-left: 65%;
+        margin-top: 10px;
+        &__index {
+          display: flex;
+          &__name {
+            margin-right: 20px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          &__date {
+            font-size: 13px;
+            line-height: 35px;
+          }
+        }
+        &__text {
+
+        }
+      }
+      &__member {
+        padding-left: 10%;
+        margin-top: 10px;
+        &__index {
+          display: flex;
+          &__name {
+            margin-right: 20px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          &__date {
+            font-size: 13px;
+            line-height: 35px;
+          }
+        }
+        &__text {
+
+        }
+      }
+    }
+  }
 }
 
 .form {
   height: 120px;
   background-color: $main;
+  display: flex;
+  align-items: center;
+  .input-box {
+    position: relative;
+    width: 100%;
+    margin-left: 40px;
+
+    &__text {
+      width: 80%;
+      height: 50px;
+      padding-left: 10px;
+      margin-left: 280px;
+  
+    }
+    &__image {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+    }
+    &__image-file {
+      display: none;
+    }
+  }
+  .icon {
+    font-size: 2em;
+  }
+  .send-btn {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(127, 127, 139);
+    margin: 20px 40px 15px 15px;
+    width: 100px;
+    cursor: pointer;
+    padding: 20px 30px;
+    height: 60px;
+  }
 }
