@@ -60,12 +60,11 @@
             2020年03月12日 18時03分
         .message__mine__text
           おはようございます
-
-.form
-  .input-box
-    %input{ class: "input-box__text", placeholder:"25文字以内で入力" }
-    %label{class: 'input-box__image'}
-      = icon('fas', 'image', class: 'icon')
-      %input{type: "file", class: 'input-box__image-file'}
-  = link_to "#", class: 'send-btn' do
-    Send
+    .form
+      .input-box
+        %input{ class: "input-box__text", placeholder:"25文字以内で入力" }
+        %label{class: 'input-box__image'}
+          = icon('fas', 'image', class: 'icon')
+          %input{type: "file", class: 'input-box__image-file'}
+      = link_to "#", class: 'send-btn' do
+        Send
