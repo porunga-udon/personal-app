@@ -16,25 +16,29 @@
 
 .body
   .group
-    .group__members
+    .group__title
       Members
-    .group__member
-      =link_to "#", class:"personal-page" do
-        udon
-    .group__member
-      =link_to "#", class:"personal-page" do
-        soba
-    .group__member
-      =link_to "#", class:"personal-page" do
-        ra-men
+    .group__members
+      .group__members__member
+        =link_to "#", class:"personal-page" do
+          udon
+      .group__members__member
+        =link_to "#", class:"personal-page" do
+          soba
+      .group__members__member
+        =link_to "#", class:"personal-page" do
+          ra-men
+
+    
   .content
-    .tabs
-      .tabs__tab2
+    %ul{class:"tabs"}
+      %li{class:"tabs__tab"}
         グループ１
-      .tabs__tab
+      %il{class:"tabs__tab2"}
         グループ２
-      .tabs__tab2
+      %il{class:"tabs__tab2"}
         グループ３
+
     .message
       .message__mine
         .message__mine__index
@@ -51,7 +55,7 @@
           .message__member__index__date
             2020年03月12日 18時03分
         .message__member__text
-          おはようございます
+          今頃起きたんですか
       .message__mine
         .message__mine__index
           .message__mine__index__name
@@ -59,7 +63,9 @@
           .message__mine__index__date
             2020年03月12日 18時03分
         .message__mine__text
-          おはようございます
+          今から寝るところです
+
+
     .form
       .input-box
         %input{ class: "input-box__text", placeholder:"25文字以内で入力" }
