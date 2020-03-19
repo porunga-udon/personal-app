@@ -1,0 +1,18 @@
+.message
+  .message__mine
+    .message__mine__index
+      .message__mine__index__name
+        =current_user.name
+      .message__mine__index__date
+        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    .lower-message
+      .message__mine__text
+        おはようです
+  .message__member
+    .message__member__index
+      .message__member__index__name
+        udon
+      .message__member__index__date
+        2020年03月12日 18時03分
+    .message__member__text
+      今頃起きたんですか
