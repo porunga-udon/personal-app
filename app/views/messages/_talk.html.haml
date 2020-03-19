@@ -1,0 +1,46 @@
+.header
+  .top-items
+    .top-items__left
+      .top-items__left__name
+        =link_to root_path, class:"user-page" do
+          =current_user.name
+      .top-items__left__btn
+        =link_to new_group_path, class: "content-btn" do
+          = icon('far', 'edit')
+        =link_to edit_user_path(current_user), class: "content-btn" do
+          = icon('fas','cog')
+    .top-items__right
+      =link_to edit_group_path(@group), class: "edit-btn"do
+        Edit
+
+.body
+  .group
+    .group__title
+      -# =@group.name
+      Members
+    .group__members
+      -@members.each do |user|
+        .group__members__member
+          =link_to "#", class:"personal-page" do
+            =user.name
+
+
+    
+  .content
+    .group-tabs
+      -current_user.groups.each do |group|
+        .group-tabs__tab
+          =link_to group_messages_path(group), class:"group-talk"do
+            = group.name
+              
+    .messages
+      = render @messages
+      
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
