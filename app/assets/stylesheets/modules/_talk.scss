@@ -125,22 +125,20 @@ $sub: #253141;
 
     .messages {
       height: calc(100% - 170px);
-      overflow: scroll;
-      &__message {
-        &__mine {
-          padding-left: 65%;
-          margin-top: 10px;
-          &__index {
-            display: flex;
-            &__name {
-              margin-right: 20px;
-              font-size: 20px;
-              font-weight: bold;
-            }
-            &__date {
-              font-size: 13px;
-              line-height: 35px;
-            }
+    overflow: scroll;
+      &__mine {
+        padding-left: 65%;
+        margin-top: 10px;
+        &__index {
+          display: flex;
+          &__name {
+            margin-right: 20px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          &__date {
+            font-size: 13px;
+            line-height: 35px;
           }
         }
       }

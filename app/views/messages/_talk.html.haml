@@ -2,7 +2,7 @@
   .top-items
     .top-items__left
       .top-items__left__name
-        =link_to "#", class:"user-page" do
+        =link_to root_path, class:"user-page" do
           =current_user.name
       .top-items__left__btn
         =link_to new_group_path, class: "content-btn" do
@@ -11,13 +11,14 @@
           = icon('fas','cog')
 
     .top-items__right
-      =link_to "#", class: "edit-btn"do
+      =link_to edit_group_path(@group), class: "edit-btn"do
         Edit
 
 .body
   .group
     .group__title
-      Members
+      =@group.name
+      -# Members
     .group__members
       -@members.each do |user|
         .group__members__member
