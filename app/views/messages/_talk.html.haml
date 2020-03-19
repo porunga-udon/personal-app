@@ -9,7 +9,6 @@
           = icon('far', 'edit')
         =link_to edit_user_path(current_user), class: "content-btn" do
           = icon('fas','cog')
-
     .top-items__right
       =link_to edit_group_path(@group), class: "edit-btn"do
         Edit
@@ -17,8 +16,8 @@
 .body
   .group
     .group__title
-      =@group.name
-      -# Members
+      -# =@group.name
+      Members
     .group__members
       -@members.each do |user|
         .group__members__member
@@ -32,8 +31,8 @@
       -current_user.groups.each do |group|
         .group-tabs__tab
           =link_to group_messages_path(group), class:"group-talk"do
-            =group.name
-            
+            = group.name
+              
     .messages
       = render @messages
       

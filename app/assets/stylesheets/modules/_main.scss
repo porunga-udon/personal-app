@@ -40,17 +40,15 @@ $sub: #253141;
         }
       }
     }
-    &__right {
+    &__hydden {
       height: 50px;
       width: 100px;
-      border: solid white thin;
       line-height: 50px;
       text-align: center;
-      .edit-btn {
+      .hydden-btn {
         text-decoration: none;
-        color: white;
+        color: $main;
         font-size: 20px;
-        font-weight: bold;
       }
     }
   }
