@@ -19,15 +19,11 @@
     .group__title
       Members
     .group__members
-      .group__members__member
-        =link_to "#", class:"personal-page" do
-          udon
-      .group__members__member
-        =link_to "#", class:"personal-page" do
-          soba
-      .group__members__member
-        =link_to "#", class:"personal-page" do
-          ra-men
+      -@members.each do |user|
+        .group__members__member
+          =link_to "#", class:"personal-page" do
+            =user.name
+
 
     
   .content

@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   before_action :set_group
 
   def index
+    @members = @group.users.where.not(id: current_user.id)
     @message = Message.new
     @messages = @group.messages.includes(:user)
   end
