@@ -70,11 +70,11 @@ $sub: #253141;
       font-size: 20px;
       padding: 10px 0 0 15px;
       font-weight: bold;
-      border-bottom: solid 1px #eeeeee;
     }
     &__members {
       overflow: scroll;
       height: 100%;
+      border-top: solid 1px #eeeeee;
       &__member {
         height: 10%;
         width: 100%;
@@ -95,7 +95,7 @@ $sub: #253141;
       background-color: $sub;
       overflow-x: auto;
       white-space: nowrap;
-      &__tab {
+      &__select {
         height: 100%;
         width: 25%;
         background-color: white;
@@ -107,17 +107,25 @@ $sub: #253141;
         padding-left: 15px;
         display: inline-block;
         }
-      &__tab2 {
+      &__tab {
         background-color: $sub;
         width: 25%;
         border-right: solid 1px #eeeeee;
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
         line-height: 50px;
         padding-left: 15px;
         display: inline-block;
+        .group-talk {
+          text-decoration: none;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+        }
       }
+    }
+    .top-page{
+      height: calc(100% - 170px);
+      background-color: $sub;
+      border-top: solid 1px #eeeeee;
     }
     .message {
       height: calc(100% - 170px);
