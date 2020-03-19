@@ -1,0 +1,74 @@
+.header
+  .top-items
+    .top-items__left
+      .top-items__left__name
+        =link_to "#", class:"user-page" do
+          =current_user.name
+      .top-items__left__btn
+        =link_to new_group_path, class: "content-btn" do
+          = icon('far', 'edit')
+        =link_to edit_user_path(current_user), class: "content-btn" do
+          = icon('fas','cog')
+
+    .top-items__right
+      =link_to "#", class: "edit-btn"do
+        Edit
+
+.body
+  .group
+    .group__title
+      Members
+    .group__members
+      -# .group__members__member
+      -#   =link_to "#", class:"personal-page" do
+      -#     udon
+      -# .group__members__member
+      -#   =link_to "#", class:"personal-page" do
+      -#     soba
+      -# .group__members__member
+      -#   =link_to "#", class:"personal-page" do
+      -#     ra-men
+
+    
+  .content
+    .group-tabs
+      -current_user.groups.each do |group|
+        .group-tabs__tab
+          =link_to group_messages_path(group), class:"group-talk"do
+            =group.name
+            
+    -# .top-page
+    .message
+      .message__mine
+        .message__mine__index
+          .message__mine__index__name
+            porunga
+          .message__mine__index__date
+            2020年03月12日 18時03分
+        .message__mine__text
+          おはようございます
+      .message__member
+        .message__member__index
+          .message__member__index__name
+            udon
+          .message__member__index__date
+            2020年03月12日 18時03分
+        .message__member__text
+          今頃起きたんですか
+      .message__mine
+        .message__mine__index
+          .message__mine__index__name
+            porunga
+          .message__mine__index__date
+            2020年03月12日 18時03分
+        .message__mine__text
+          今から寝るところです
+
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

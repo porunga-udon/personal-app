@@ -31,16 +31,12 @@
 
     
   .content
-    %ul{class:"tabs"}
-      %li{class:"tabs__tab"}
-        =link_to "#", class:"group-talk" do
-          グループ１
-      %il{class:"tabs__tab"}
-        =link_to "#", class:"group-talk" do
-          グループ２
-      %il{class:"tabs__tab"}
-        =link_to "#", class:"group-talk" do
-          グループ３
+    .group-tabs
+      -current_user.groups.each do |group|
+        .group-tabs__tab
+          =link_to group_messages_path(group), class:"group-talk"do
+            =group.name
+            
     .top-page
     -# .message
     -#   .message__mine
@@ -68,12 +64,12 @@
     -#     .message__mine__text
     -#       今から寝るところです
 
-
-    .form
-      .input-box
-        %input{ class: "input-box__text", placeholder:"25文字以内で入力" }
-        %label{class: 'input-box__image'}
-          = icon('fas', 'image', class: 'icon')
-          %input{type: "file", class: 'input-box__image-file'}
-      = link_to "#", class: 'send-btn' do
-        Send
+    .footer
+    -# .form
+    -#   = form_for [@group, @message] do |f|
+    -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+    -#     .form__mask
+    -#       = f.label :image, class: 'form__mask__image' do
+    -#         = icon('fas', 'image', class: 'icon')
+    -#         = f.file_field :image, class: 'hidden'
+    -#     = f.submit 'Send', class: 'form__submit'
