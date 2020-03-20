@@ -5,9 +5,11 @@
         = current_user.name
       .message__mine__index__date
         = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-    .lower-message
-      .message__mine__text
-        = message.content
+    .message__member__low
+      - if message.content.present?
+        .message__member__text
+          = message.content  
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 -else
   .message__member
     .message__member__index
@@ -15,5 +17,8 @@
         = message.user.name
       .message__member__index__date
         = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-    .message__member__text
-      = message.content  
+    .message__memnber__low
+      - if message.content.present?
+        .message__member__text
+          = message.content  
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
