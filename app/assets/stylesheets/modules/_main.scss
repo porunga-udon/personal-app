@@ -7,6 +7,7 @@ $sub: #253141;
 
 .wrapper {
   height: 100vh;
+  background-image: url("http://fontbomb.ilex.ca/js/main.js");
 }
 
 .header {
@@ -112,7 +113,7 @@ $sub: #253141;
         line-height: 50px;
         padding-left: 15px;
         display: inline-block;
-        .group-talk {
+        .group-name {
           text-decoration: none;
           color: white;
           font-size: 20px;

@@ -17,12 +17,13 @@
     .group__title
       Members
     .group__members
-  
+
   .content
     .group-tabs
       -current_user.groups.each do |group|
         .group-tabs__tab
-          =link_to group_messages_path(group), class:"group-talk"do
+          %input{name: "group_id", type: "hidden", value: group.id, class: 'group_id' }/
+          =link_to group_messages_path(group), class:"group-name"do
             =group.name
 
     .top-page
