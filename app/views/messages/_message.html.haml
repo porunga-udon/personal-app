@@ -2,12 +2,12 @@
   .message__mine
     .message__mine__index
       .message__mine__index__name
-        = current_user.name
+        = message.user.name
       .message__mine__index__date
         = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-    .message__member__low
+    .message__mine__low
       - if message.content.present?
-        .message__member__text
+        .message__mine__text
           = message.content  
       = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 -else

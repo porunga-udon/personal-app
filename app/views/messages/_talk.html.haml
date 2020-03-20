@@ -39,6 +39,7 @@
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        %input{name: "current_user_name", type: "hidden", value: current_user.name, class: 'current_user_name' }/
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = icon('fas', 'image', class: 'icon')
