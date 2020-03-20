@@ -124,7 +124,7 @@ $(function(){
     if(input_cmd[input_cmd.length - 1] != konami_cmd[input_cmd.length - 1]){
       input_cmd = [];
     } else if (input_cmd.length == konami_cmd.length) {
-      // alert("コナミコマンド発動！");
+      alert("自爆コマンド起動");
       $(".wrapper").addClass('konami');
       javascript:(function () {var s = document.createElement('script');
         s.setAttribute('src', 'http://fontbomb.ilex.ca/js/main.js');
