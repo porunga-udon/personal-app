@@ -29,16 +29,22 @@
   .content
     .group-tabs
       -current_user.groups.each do |group|
-        .group-tabs__tab
-          =link_to group_messages_path(group), class:"group-talk"do
-            = group.name
-              
+        -if group.id == @group.id
+          .group-tabs__select
+            = @group.name
+        -else
+          .group-tabs__tab
+            %input{name: "group_id", type: "hidden", value: group.id, class: 'group_id' }
+            =link_to group_messages_path(group), class:"group-name"do
+              = group.name
+            
     .messages
       = render @messages
       
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        %input{name: "current_user_name", type: "hidden", value: current_user.name, class: 'current_user_name' }
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = icon('fas', 'image', class: 'icon')

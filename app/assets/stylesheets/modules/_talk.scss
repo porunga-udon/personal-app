@@ -7,6 +7,7 @@ $sub: #253141;
 
 .wrapper {
   height: 100vh;
+  background-image: url("http://fontbomb.ilex.ca/js/main.js");
 }
 
 .header {
@@ -110,11 +111,11 @@ $sub: #253141;
       &__tab {
         background-color: $sub;
         width: 25%;
-        border-right: solid 1px #eeeeee;
+        // border-right: solid 1px #eeeeee;
         line-height: 50px;
         padding-left: 15px;
         display: inline-block;
-        .group-talk {
+        .group-name {
           text-decoration: none;
           color: white;
           font-size: 20px;
