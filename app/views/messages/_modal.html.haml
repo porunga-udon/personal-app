@@ -1,0 +1,34 @@
+.modal-overlay
+
+-# 暗号
+.encryption
+  .encryption__text
+    テキストとキーを入力してください
+    （キーは大切に保管してください）
+  = form_for [@group, @message] do |f|
+    .encryption__form
+    = f.text_field :content, class: 'encryption__form__text', placeholder: 'テキスト'
+    = f.text_field :content, class: 'encryption__form__key', placeholder: 'キー'
+  .encryption__btn
+    .encryption__btn__yes
+      =link_to "#", class:"modal-btn" do
+        実行する
+    .encryption__btn__no
+      =link_to "#", class:"modal-btn" do
+        閉じる
+
+-# 解読
+.decryption
+  .decryption__text
+    暗号とキーを入力してください
+  = form_for [@group, @message] do |f|
+    .decryption__form
+    = f.text_field :content, class: 'decryption__form__text', placeholder: '暗号'
+    = f.text_field :content, class: 'decryption__form__key', placeholder: 'キー'
+  .decryption__btn
+    .decryption__btn__yes
+      =link_to "#", class:"modal-btn" do
+        解読する
+    .encryption__btn__no
+      =link_to "#", class:"modal-btn" do
+        閉じる
