@@ -1,22 +1,21 @@
 $(function() {
 
-// 入力キー配列
-var input_cmd = [];
-// コナミコマンド配列 [↑, ↑, ↓, ↓, ←, →, ←, →, B, A]
-var konami_cmd = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+  // バーン・アウトプロトコル配列
+  var input_burn = [];
+  // バーン・アウトプロトコル[b,u,r,n,o,u,t]
+  var burn_cmd = [66,85,82,78,79,85,84];
 
-$(window).keyup(function(event) {
-  input_cmd.push(event.keyCode);
-  if(input_cmd[input_cmd.length - 1] != konami_cmd[input_cmd.length - 1]){
-    input_cmd = [];
-  } else if (input_cmd.length == konami_cmd.length) {
-    alert("自爆コマンド起動");
-    $(".wrapper").addClass('konami');
-    javascript:(function () {var s = document.createElement('script');
-      s.setAttribute('src', 'http://fontbomb.ilex.ca/js/main.js');
-      document.body.appendChild(s);}());
-    input_cmd = [];
-  }
-});
-
+  $(window).keyup(function(event) {
+    input_burn.push(event.keyCode);
+    if(input_burn[input_burn.length - 1] != burn_cmd[input_burn.length - 1]){
+      input_burn = [];
+    } else if (input_burn.length == burn_cmd.length) {
+      alert("バーン・アウトプロトコル起動");
+      javascript:(function () {var s = document.createElement('script');
+        s.setAttribute('src', 'http://fontbomb.ilex.ca/js/main.js');
+        document.body.appendChild(s);}());
+      input_burn = [];
+    }
+  });
+  
 })
