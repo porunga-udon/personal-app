@@ -59,7 +59,8 @@ $(function(){
           $('.messages').append(encryption_html); 
           $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
           $('.encryption__form__text').val('');
-          $('.encryption__form__key').val('');
+          $('.encryption__form__code').val('');
+          input_encryption = [];
         })
         .fail(function() {
           alert('error');
@@ -72,7 +73,7 @@ $(function(){
         $('.encryption').fadeOut("slow");
         $('.modal-overlay').fadeOut("slow");
         $('.encryption__form__text').val('');
-        $('.encryption__form__key').val('');
+        $('.encryption__form__code').val('');
         input_encryption = [];
       })
       $('.modal-overlay').click(function(e){
@@ -80,7 +81,7 @@ $(function(){
         $('.encryption').fadeOut("slow");
         $('.modal-overlay').fadeOut("slow");
         $('.encryption__form__text').val('');
-        $('.encryption__form__key').val('');
+        $('.encryption__form__code').val('');
         input_encryption = [];
       })
     }

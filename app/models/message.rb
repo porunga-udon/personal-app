@@ -8,18 +8,14 @@ class Message < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  def encryption
-    if key.present?
-      chars = [*"a".."z", *"A".."Z", *"0".."9"]
+  def edit
+    chars = [*"a".."z", *"A".."Z", *"0".."9"]
+    if code.present?
       romaji =  content.romaji
-      self.content = romaji.tr(chars.join, chars.rotate(-3).join)
+      self.content = romaji.tr(chars.join, chars.rotate(code).join)
+    elsif key.present?
+      @content = content.tr(chars.join, chars.rotate(-key).join)
+      self.content = @content.kana
     end
   end
-
-  def decryption
-    chars = [*"a".."z", *"A".."Z", *"0".."9"]
-    @content = content.tr(chars.join, chars.rotate(-key).join)
-    self.content = @content.kana
-  end
-
 end

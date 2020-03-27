@@ -37,43 +37,51 @@ $(function() {
       $('.decryption').fadeIn("slow");
       $('.modal-overlay').fadeIn("slow");
       // 解読
-      $('.decryption__btn__yes').click(function(e){
+      $('#decryption_form').on('submit', function(e){
         e.preventDefault();
-        var todo = $('.decryption__form__text').val();
-        var key = $('.decryption__form__num').val();
+        var formData = new FormData(this);
+        var url = $('#decryption_form').attr('action');
         $('.decryption').fadeOut("slow");
-        $('.encryption__form__text').val('');
+        $('.modal-overlay').fadeOut("slow");
         $.ajax({
           type: 'POST',
-          url: '/todos.json',
-          data: {
-            decryption: {
-              content: todo,
-              key: key
-            }
-          },
-          dataType: 'json'
+          url: url,
+          data:formData,
+          dataType: 'json',
+          processData: false,
+          contentType: false
         })
         .done(function(data) {
           var result_html = buildHTML(data);
-          $('body').append(result_html);
-          $('.result__exit__btn').click(function(e){
-            e.preventDefault();
+          $('.body').append(result_html); 
+          $('.result__exit__btn').click(function(){
             $('.modal-overlay').fadeOut("slow");
             $('.result').fadeOut("slow");
+            $('.decryption__form__text').val('');
+            $('.decryption__form__key').val('');
             input_decryption = [];
           })
         })
         .fail(function() {
           alert('error');
-          input_decryption = [];
         });
+        input_decryption = [];
       })
       // 閉じる
       $('.decryption__btn__no').click(function(e){
         e.preventDefault();
         $('.decryption').fadeOut("slow");
         $('.modal-overlay').fadeOut("slow");
+        $('.decryption__form__text').val('');
+        $('.decryption__form__key').val('');
+        input_decryption = [];
+      })
+      $('.modal-overlay').click(function(e){
+        e.preventDefault();
+        $('.decryption').fadeOut("slow");
+        $('.modal-overlay').fadeOut("slow");
+        $('.decryption__form__text').val('');
+        $('.decryption__form__key').val('');
         input_decryption = [];
       })
     }
