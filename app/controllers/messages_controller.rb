@@ -9,9 +9,14 @@ class MessagesController < ApplicationController
   end
 
   def create
+    # binding.pry
     @message = @group.messages.new(message_params)
-    @message.encryption
-    @message.save
+    @message.edit
+    if @message.key.present?
+      @message.delete
+    else
+      @message.save
+    end
     respond_to do |format|
       format.html
       format.json
@@ -21,15 +26,7 @@ class MessagesController < ApplicationController
   private
   
   def message_params
-    params.require(:message).permit(:content, :image, :key).merge(user_id: current_user.id)
-  end
-  
-  def encryption_params
-    params.require(:encryption).permit(:content,:key)
-  end
-  
-  def decryption_params
-    params.require(:decryption).permit(:content,:key)
+    params.require(:message).permit(:content, :image, :key, :code).merge(user_id: current_user.id)
   end
   
   def set_group
