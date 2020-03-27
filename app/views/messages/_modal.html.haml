@@ -5,17 +5,15 @@
   .encryption__text
     テキストとキーを入力してください
     （キーは大切に保管してください）
-  = form_for [@group, @message] do |f|
+  = form_for [@group, @message], html:{id:'encryption_form',class:'encryption_form'} do |f|
     .encryption__form
     = f.text_field :content, class: 'encryption__form__text', placeholder: 'テキスト'
-    = f.text_field :content, class: 'encryption__form__key', placeholder: 'キー'
-  .encryption__btn
-    .encryption__btn__yes
-      =link_to "#", class:"modal-btn" do
-        実行する
-    .encryption__btn__no
-      =link_to "#", class:"modal-btn" do
-        閉じる
+    = f.text_field :key, class: 'encryption__form__key', placeholder: 'キー'
+    .encryption__btn
+      = f.submit '実行する', class: 'encryption__btn__yes'
+      .encryption__btn__no
+        =link_to "#", class:"modal-btn" do
+          閉じる
 
 -# 解読
 .decryption
