@@ -124,9 +124,15 @@ $sub: #253141;
       }
     }
 
+    // .top-page {
+    //   height: calc(100% - 170px);
+    //   background-color: $sub;
+    //   border-top: solid 1px #eeeeee;
+    // }
+
     .messages {
       height: calc(100% - 170px);
-    overflow: scroll;
+      overflow: scroll;
       &__mine {
         padding-left: 65%;
         margin-top: 10px;
