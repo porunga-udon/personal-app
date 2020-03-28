@@ -36,7 +36,7 @@
             %input{name: "group_id", type: "hidden", value: group.id, class: 'group_id' }
             =link_to group_messages_path(group), class:"group-name"do
               = group.name
-            
+                  
     .messages
       = render @messages
       

@@ -7,8 +7,8 @@
     （キーは大切に保管してください）
   = form_for [@group, @message], html:{id:'encryption_form',class:'encryption_form'} do |f|
     .encryption__form
-    = f.text_field :content, class: 'encryption__form__text', placeholder: 'テキスト'
-    = f.text_field :code, class: 'encryption__form__code', placeholder: 'キー'
+    = f.text_field :content, class: 'encryption__form__text', id:'encryption__form__text',placeholder: 'テキスト'
+    = f.password_field :code, class: 'encryption__form__code', placeholder: 'キー'
     .encryption__btn
       = f.submit '実行する', class: 'encryption__btn__yes'
       .encryption__btn__no
@@ -21,8 +21,8 @@
     暗号とキーを入力してください
   = form_for [@group, @message], html:{id:'decryption_form',class:'decryption_form'} do |f|
     .decryption__form
-    = f.text_field :content, class: 'decryption__form__text', placeholder: '暗号'
-    = f.text_field :key, class: 'decryption__form__key', placeholder: 'キー'
+    = f.text_field :content, class: 'decryption__form__text', id:'decryption__form__text', placeholder: '暗号'
+    = f.password_field :key, class: 'decryption__form__key', placeholder: 'キー'
     .decryption__btn
       = f.submit '解読する', class: 'decryption__btn__yes'
       .decryption__btn__no
