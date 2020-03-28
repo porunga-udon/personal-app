@@ -2,84 +2,42 @@ $(function(){
   
       function buildHTML(message,current_user_name){
         if ( message.image ) {
-          if (message.user_name == current_user_name) {
-            var html =`
-              <div class="message__mine">
-                <div class="message__mine__index">
-                  <div class="message__mine__index__name">
-                    ${message.user_name}
-                  </div>
-                  <div class="message__mine__index__date">
-                    ${message.created_at}
-                  </div>
-                </div>
-                <div class="message__mine__low">
-                  <p class="message__mine__text">
-                    ${message.content}
-                  </p>
-                  <img src=${message.image}>
-                </div>
-              </div>`
-            return html;
-          } else {
-            var html =`
-              <div class="message__member">
-                <div class="message__member__index">
-                  <div class="message__member_index__name">
-                    ${message.user_name}
-                  </div>
-                  <div class="message__member__index__date">
-                    ${message.created_at}
-                  </div>
-                </div>
-                <div class="message__member__low">
-                  <p class="message__member__text">
-                    ${message.content}
-                  </p>
-                  <img src=${message.image}>
-                </div>
-              </div>`
-            return html;
-          }
+          var html =`
+                    <div class="message__mine">
+                      <div class="message__mine__index">
+                        <div class="message__mine__index__name">
+                          ${message.user_name}
+                        </div>
+                        <div class="message__mine__index__date">
+                          ${message.created_at}
+                        </div>
+                      </div>
+                      <div class="message__mine__low">
+                        <p class="message__mine__text">
+                          ${message.content}
+                        </p>
+                        <img src=${message.image}>
+                      </div>
+                    </div>`
+          return html;
         } else {
-          if (message.user_name == current_user_name) {
             var html =`
-              <div class="message__mine">
-                <div class="message__mine__index">
-                  <div class="message__mine__index__name">
-                    ${message.user_name}
-                  </div>
-                  <div class="message__mine__index__date">
-                    ${message.created_at}
-                  </div>
-                </div>
-                <div class="message__mine__low">
-                  <p class="message__mine__text">
-                    ${message.content}
-                  </p>
-                </div>
-              </div>`
+                      <div class="message__mine">
+                        <div class="message__mine__index">
+                          <div class="message__mine__index__name">
+                            ${message.user_name}
+                          </div>
+                          <div class="message__mine__index__date">
+                            ${message.created_at}
+                          </div>
+                        </div>
+                        <div class="message__mine__low">
+                          <p class="message__mine__text">
+                            ${message.content}
+                          </p>
+                        </div>
+                      </div>`
             return html;
-          } else {
-            var html =`
-              <div class="message__member">
-                <div class="message__member__index">
-                  <div class="message__member_index__name">
-                    ${message.user_name}
-                  </div>
-                  <div class="message__member__index__date">
-                    ${message.created_at}
-                  </div>
-                </div>
-                <div class="message__member__low">
-                  <p class="message__member__text">
-                    ${message.content}
-                  </p>
-                  <img src=${message.image}>
-                </div>
-              </div>`
-            return html;
-          }
         };
       }
 
@@ -110,3 +68,87 @@ $(function(){
   })
 
 });
+
+
+// function buildHTML(message,current_user_name){
+//   if ( message.image ) {
+//     if (message.user_name == current_user_name) {
+//       var html =`
+//         <div class="message__mine">
+//           <div class="message__mine__index">
+//             <div class="message__mine__index__name">
+//               ${message.user_name}
+//             </div>
+//             <div class="message__mine__index__date">
+//               ${message.created_at}
+//             </div>
+//           </div>
+//           <div class="message__mine__low">
+//             <p class="message__mine__text">
+//               ${message.content}
+//             </p>
+//             <img src=${message.image}>
+//           </div>
+//         </div>`
+//       return html;
+//     } else {
+//       var html =`
+//         <div class="message__member">
+//           <div class="message__member__index">
+//             <div class="message__member_index__name">
+//               ${message.user_name}
+//             </div>
+//             <div class="message__member__index__date">
+//               ${message.created_at}
+//             </div>
+//           </div>
+//           <div class="message__member__low">
+//             <p class="message__member__text">
+//               ${message.content}
+//             </p>
+//             <img src=${message.image}>
+//           </div>
+//         </div>`
+//       return html;
+//     }
+//   } else {
+//     if (message.user_name == current_user_name) {
+//       var html =`
+//         <div class="message__mine">
+//           <div class="message__mine__index">
+//             <div class="message__mine__index__name">
+//               ${message.user_name}
+//             </div>
+//             <div class="message__mine__index__date">
+//               ${message.created_at}
+//             </div>
+//           </div>
+//           <div class="message__mine__low">
+//             <p class="message__mine__text">
+//               ${message.content}
+//             </p>
+//           </div>
+//         </div>`
+//       return html;
+//     } else {
+//       var html =`
+//         <div class="message__member">
+//           <div class="message__member__index">
+//             <div class="message__member_index__name">
+//               ${message.user_name}
+//             </div>
+//             <div class="message__member__index__date">
+//               ${message.created_at}
+//             </div>
+//           </div>
+//           <div class="message__member__low">
+//             <p class="message__member__text">
+//               ${message.content}
+//             </p>
+//             <img src=${message.image}>
+//           </div>
+//         </div>`
+//       return html;
+//     }
+//   };
+// }
